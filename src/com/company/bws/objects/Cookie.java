@@ -1,14 +1,15 @@
-package com.company;
+package com.company.bws.objects;
+
+import com.company.bws.enums.CookieFilling;
+import com.company.bws.enums.CookieType;
 
 import java.util.Objects;
 
-public class Cookie extends Sweet{
-    public enum CookieType{
-        BISCUIT,SAND
-    }
-    public enum CookieFilling{
-        RAISINS,NUTS,CHOCOLATE,NOFILLING
-    }
+public class Cookie extends Sweet {
+
+
+
+
     private CookieType cookie;
     private CookieFilling filling;
 
@@ -26,6 +27,10 @@ public class Cookie extends Sweet{
 
     public void setFilling(CookieFilling filling) {
         this.filling = filling;
+    }
+
+    public Cookie() {
+
     }
 
     public Cookie(int weight, int caloric, double sugarPersent, CookieType cookie, CookieFilling filling) {

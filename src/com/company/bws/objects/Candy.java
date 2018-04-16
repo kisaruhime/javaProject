@@ -1,14 +1,13 @@
-package com.company;
+package com.company.bws.objects;
+
+import com.company.bws.enums.CandyType;
+import com.company.bws.enums.FillingType;
 
 import java.util.Objects;
 
-public class Candy extends Sweet{
-    public enum CandyType {
-        CHOCOLATE, TOFFEE, GELATIN
-    }
-    public enum FillingType{
-        CHOCOLATE, CREAM, AlCOHOL,NOFILLING
-    }
+public class Candy extends Sweet {
+
+
     private CandyType type;
     private FillingType filling;
 
@@ -27,6 +26,11 @@ public class Candy extends Sweet{
     public void setFilling(FillingType filling) {
         this.filling = filling;
     }
+
+    public Candy() {
+
+    }
+
 
     public Candy(int weight, int caloric, double sugarPersent, CandyType type, FillingType filling) {
         super(weight, caloric, sugarPersent);

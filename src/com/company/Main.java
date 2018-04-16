@@ -1,5 +1,11 @@
 package com.company;
 
+import com.company.bws.helpers.ArrayPrint;
+import com.company.bws.helpers.SweetInitializator;
+import com.company.bws.helpers.SweetSugarSearch;
+import com.company.bws.objects.BagSweets;
+import com.company.bws.sorts.BubbleSort;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -11,9 +17,9 @@ public class Main {
         ArrayPrint.print(bag.getBag());
         //IntersectionSort.insertIntoSort(bag.getBag());
         //ArrayPrint.print(bag.getBag());
-        int sugarRange1 = 10;
-        int sugarRange2 = 20;
-        SweetSugarSearch.searchSweet(bag.getBag(),sugarRange1,sugarRange2);
+        int sugarRange1 = 1;
+        int sugarRange2 = 5;
+        SweetSugarSearch.searchSweet(bag.getBag(), sugarRange1, sugarRange2);
 
 
     }

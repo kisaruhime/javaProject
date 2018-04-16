@@ -1,4 +1,4 @@
-package com.company;
+package com.company.bws.objects;
 
 public abstract class Sweet {
     private int weight;
@@ -29,13 +29,16 @@ public abstract class Sweet {
         this.sugarPersent = sugarPersent;
     }
 
+    public Sweet() {
+    }
+
     public Sweet(int weight, int caloric, double sugarPersent) {
         this.weight = weight;
         this.caloric = caloric;
         this.sugarPersent = sugarPersent;
     }
 
-    public double sugarWeight(){
+    public double sugarWeight() {
         return this.weight * this.sugarPersent;
     }
 }

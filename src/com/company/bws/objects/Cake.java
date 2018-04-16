@@ -1,22 +1,26 @@
-package com.company;
+package com.company.bws.objects;
+
+import com.company.bws.enums.CakeType;
 
 import java.util.Objects;
 
-public class Cake extends Sweet{
-    public enum CakeEnum{
-        DONUT,CAKE,PIE
-    }
-    private CakeEnum cake;
+public class Cake extends Sweet {
 
-    public CakeEnum getCake() {
+    private CakeType cake;
+
+    public CakeType getCake() {
         return cake;
     }
 
-    public void setCake(CakeEnum cake) {
+    public void setCake(CakeType cake) {
         this.cake = cake;
     }
 
-    public Cake(int weight, int caloric, double sugarPersent, CakeEnum cake) {
+    public Cake(){
+
+    }
+
+    public Cake(int weight, int caloric, double sugarPersent, CakeType cake) {
         super(weight, caloric, sugarPersent);
         this.cake = cake;
     }
