@@ -6,4 +6,9 @@ public enum CookieFilling {
 
     CookieFilling() {
     }
+
+    public static CookieFilling next() {
+        return CookieFilling.values()[0 + (int) (Math.random() * 3)];
+
+    }
 }

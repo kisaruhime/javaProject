@@ -31,7 +31,7 @@ public class BagSweets {
     }
 
     public BagSweets(){
-        this.bag = new Sweet[9];
+        this.bag = new Sweet[]{};
 
     }
 

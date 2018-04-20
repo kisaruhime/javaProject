@@ -5,4 +5,9 @@ public enum CandyType {
 
     CandyType() {
     }
+
+    public static CandyType next() {
+        return CandyType.values()[0 + (int) (Math.random() * 2)];
+
+    }
 }

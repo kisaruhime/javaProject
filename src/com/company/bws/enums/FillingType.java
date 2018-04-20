@@ -5,4 +5,9 @@ public enum FillingType {
 
     FillingType() {
     }
+
+    public static FillingType next() {
+        return FillingType.values()[0 + (int) (Math.random() * 3)];
+
+    }
 }

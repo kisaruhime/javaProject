@@ -20,4 +20,37 @@ public class SweetInitializator {
 
         return arr;
     }
+
+    public static Candy candyInitializator() {
+        int minW = 20;
+        int maxW = 40;
+        int minC = 300;
+        int maxC = 420;
+        double minS = 0.1;
+        double maxS = 0.3;
+        return new Candy(minW + (int) (Math.random() * maxW), minC + (int) (Math.random() * maxC), minS + (double) (Math.random() * maxS), CandyType.next(), FillingType.next());
+
+    }
+
+    public static Cookie cookieInitializator() {
+        int minW = 30;
+        int maxW = 50;
+        int minC = 280;
+        int maxC = 380;
+        double minS = 0.05;
+        double maxS = 0.2;
+        return new Cookie(minW + (int) (Math.random() * maxW), minC + (int) (Math.random() * maxC), minS + (double) (Math.random() * maxS), CookieType.next(), CookieFilling.next());
+
+    }
+
+    public static Cake cakeInitializator() {
+        int minW = 30;
+        int maxW = 60;
+        int minC = 310;
+        int maxC = 450;
+        double minS = 0.1;
+        double maxS = 0.35;
+        return new Cake(minW + (int) (Math.random() * maxW), minC + (int) (Math.random() * maxC), minS + (double) (Math.random() * maxS), CakeType.next());
+
+    }
 }
