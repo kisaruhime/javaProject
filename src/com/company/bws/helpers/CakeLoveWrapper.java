@@ -6,7 +6,11 @@ import com.company.bws.objects.Sweet;
 
 public class CakeLoveWrapper implements GiftWrapper {
 
-    public static BagSweets wrap() {
+    public CakeLoveWrapper() {
+    }
+
+    @Override
+    public  BagSweets wrap() {
         Sweet[] sweets = new Sweet[5];
         for (int i = 0; i < 3; i++) {
             sweets[i] = SweetInitializator.cakeInitializator();

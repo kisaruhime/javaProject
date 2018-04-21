@@ -4,7 +4,11 @@ import com.company.bws.objects.*;
 
 public class CandyLoveWrapper implements GiftWrapper {
 
-    public static BagSweets wrap() {
+    public CandyLoveWrapper() {
+    }
+
+    @Override
+    public BagSweets wrap() {
         int totalNum = 2 + (int) (Math.random() * 4);
         Sweet[] sweets = new Sweet[totalNum + 2];
         for (int i = 0; i < totalNum; i++) {

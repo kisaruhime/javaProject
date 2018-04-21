@@ -11,9 +11,9 @@ public class ArrayPrint {
         }
     }
 
-    public static void stockContent(Stock stock){
-        for(int i = 0;i<stock.getBags().length;i++){
-            System.out.println("Content of gift" + i+ " :" );
+    public static void stockContent(Stock stock) {
+        for (int i = 0; i < stock.getBags().length; i++) {
+            System.out.println("Content of gift" + i + " :");
             ArrayPrint.printBag(stock.getBags()[i].getBag());
         }
     }
