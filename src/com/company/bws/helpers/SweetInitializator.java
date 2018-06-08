@@ -6,6 +6,10 @@ import com.company.bws.objects.Candy;
 import com.company.bws.objects.Cookie;
 import com.company.bws.objects.Sweet;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class SweetInitializator {
     public static Sweet[] sweetsInitialize(Sweet[] arr) {
         arr[0] = new Candy(30, 450, 0.1, CandyType.CHOCOLATE, FillingType.CREAM);
@@ -22,13 +26,27 @@ public class SweetInitializator {
     }
 
     public static Candy candyInitializator() {
-        int minW = 20;
-        int maxW = 40;
-        int minC = 300;
-        int maxC = 420;
-        double minS = 0.1;
-        double maxS = 0.3;
-        return new Candy(minW + (int) (Math.random() * maxW), minC + (int) (Math.random() * maxC), minS + (double) (Math.random() * maxS), CandyType.next(), FillingType.next());
+        //TODO сделать инициализацию из файла и вставить здесь же проверки на исключения
+        //TODO сделать собственное исключение, на случай если вес и калорийность и процент сахара конфеты отрицательные
+//        BufferedReader br = null;
+//        try {
+//            br = new BufferedReader(new FileReader("files\\candy.txt"));
+//            String tmp = "";
+//            while ((tmp = br.readLine()) != null) {
+//                String[] strings = tmp.split("\\s");
+//                Integer[] values = new Integer[strings.length];
+//                int i=0;
+//                for(String s : strings){
+//                    values[i] = Integer.valueOf(s);
+//                    i++;
+//                }
+//                return new Candy(values[0],values[1] ,values[2], CandyType.next(), FillingType.next());
+//            }
+//      return new Candy(minW + (int) (Math.random() * maxW), minC + (int) (Math.random() * maxC), minS + (double) (Math.random() * maxS), CandyType.next(), FillingType.next());
+        return new Candy();
+//        } catch (IOException e) {
+//            System.err.println("ошибка открытия потока " + e);
+//        }
 
     }
 
