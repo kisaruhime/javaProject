@@ -11,11 +11,16 @@ public class CandyLoveWrapper implements GiftWrapper {
     public BagSweets wrap() {
         int totalNum = 2 + (int) (Math.random() * 4);
         Sweet[] sweets = new Sweet[totalNum + 2];
-        for (int i = 0; i < totalNum; i++) {
-            sweets[i] = SweetInitializator.candyInitializator();
+        try{
+            for (int i = 0; i < totalNum; i++) {
+                sweets[i] = SweetInitializator.candyInitializator();
+            }
+            sweets[totalNum] = SweetInitializator.cookieInitializator();
+            sweets[totalNum + 1] = SweetInitializator.cakeInitializator();
         }
-        sweets[totalNum] = SweetInitializator.cookieInitializator();
-        sweets[totalNum + 1] = SweetInitializator.cakeInitializator();
+       catch (SweetLogicException e){
+            System.out.println(e);
+       }
         BagSweets newBag = new BagSweets();
         newBag.setBag(sweets);
         newBag.setWeight();

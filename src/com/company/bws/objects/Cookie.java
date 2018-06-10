@@ -7,9 +7,6 @@ import java.util.Objects;
 
 public class Cookie extends Sweet {
 
-
-
-
     private CookieType cookie;
     private CookieFilling filling;
 
@@ -60,6 +57,8 @@ public class Cookie extends Sweet {
                 "cookie=" + cookie +
                 ", filling=" + filling +
                 ", weight=" + this.getWeight() +
+                ", caloric = " + this.getCaloric() +
+                ", sugarPersent = " + this.getSugarPersent() +
                 '}';
     }
 }
