@@ -1,5 +1,7 @@
 package com.company.bws.objects;
 
+import java.util.Arrays;
+
 public class BagSweets {
     private Sweet[] bag;
     private int weight;
@@ -35,6 +37,11 @@ public class BagSweets {
 
     }
 
-
-
+    @Override
+    public String toString() {
+        return "BagSweets{" +
+                "bag = " + bag.toString() +
+                ", weight=" + weight +
+                '}';
+    }
 }

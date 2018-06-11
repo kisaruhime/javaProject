@@ -42,8 +42,10 @@ public class Cake extends Sweet {
     @Override
     public String toString() {
         return "Cake{" +
-                "cake=" + cake +
-                "weight=" + this.getWeight() +
+                "weight = " + this.getWeight() +
+                ", caloric = " + this.getCaloric() +
+                ", sugarPersent = " + this.getSugarPersent() +
+                ", cake filling = " + this.getCake() +
                 '}';
     }
 }

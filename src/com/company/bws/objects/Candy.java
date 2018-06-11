@@ -7,7 +7,6 @@ import java.util.Objects;
 
 public class Candy extends Sweet {
 
-
     private CandyType type;
     private FillingType filling;
 
@@ -31,8 +30,7 @@ public class Candy extends Sweet {
 
     }
 
-
-    public Candy(int weight, int caloric, double sugarPersent, CandyType type, FillingType filling) {
+    public Candy(int weight, int caloric, double sugarPersent, CandyType type, FillingType filling) throws SweetLogicException {
         super(weight, caloric, sugarPersent);
         this.type = type;
         this.filling = filling;
@@ -56,9 +54,11 @@ public class Candy extends Sweet {
     @Override
     public String toString() {
         return "Candy{" +
-                "type=" + type +
-                ", filling=" + filling +
-                ", weight=" + this.getWeight() +
+                "type = " + type +
+                ", filling = " + filling +
+                ", weight = " + this.getWeight() +
+                ", caloric = " + this.getCaloric() +
+                ", sugarPersent = " + this.getSugarPersent() +
                 '}';
     }
 }

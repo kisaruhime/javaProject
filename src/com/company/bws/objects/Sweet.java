@@ -1,6 +1,7 @@
 package com.company.bws.objects;
 
 public abstract class Sweet {
+
     private int weight;
     private int caloric;
     private double sugarPersent;
@@ -40,5 +41,14 @@ public abstract class Sweet {
 
     public double sugarWeight() {
         return this.weight * this.sugarPersent;
+    }
+
+    @Override
+    public String toString() {
+        return "Sweet{" +
+                "weight=" + weight +
+                ", caloric=" + caloric +
+                ", sugarPersent=" + sugarPersent +
+                '}';
     }
 }
