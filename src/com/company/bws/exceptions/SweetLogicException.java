@@ -1,4 +1,4 @@
-package com.company.bws.objects;
+package com.company.bws.exceptions;
 
 public class SweetLogicException extends Exception {
 

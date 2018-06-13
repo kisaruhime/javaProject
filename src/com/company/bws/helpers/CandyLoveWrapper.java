@@ -1,5 +1,6 @@
 package com.company.bws.helpers;
 
+import com.company.bws.exceptions.SweetLogicException;
 import com.company.bws.objects.*;
 
 public class CandyLoveWrapper implements GiftWrapper {

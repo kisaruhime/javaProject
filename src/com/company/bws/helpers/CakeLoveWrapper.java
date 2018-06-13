@@ -3,7 +3,7 @@ package com.company.bws.helpers;
 import com.company.bws.objects.BagSweets;
 import com.company.bws.objects.GiftWrapper;
 import com.company.bws.objects.Sweet;
-import com.company.bws.objects.SweetLogicException;
+import com.company.bws.exceptions.SweetLogicException;
 
 public class CakeLoveWrapper implements GiftWrapper {
 

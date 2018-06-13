@@ -6,6 +6,10 @@ public class BagSweets {
     private Sweet[] bag;
     private int weight;
 
+    public BagSweets(){
+        this.bag = new Sweet[]{};
+
+    }
     public Sweet[] getBag() {
         return bag;
     }
@@ -14,12 +18,11 @@ public class BagSweets {
         this.bag = bag;
     }
 
-
     public void setWeight() {
         weight=0;
         if(this.bag.length != 0) {
             for (Sweet i : this.bag){
-                    weight += i.getWeight();
+                weight += i.getWeight();
             }
         }
 
@@ -31,12 +34,6 @@ public class BagSweets {
         }
         return weight;
     }
-
-    public BagSweets(){
-        this.bag = new Sweet[]{};
-
-    }
-
     @Override
     public String toString() {
         return "BagSweets{" +

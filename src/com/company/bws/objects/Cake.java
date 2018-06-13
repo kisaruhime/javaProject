@@ -8,20 +8,20 @@ public class Cake extends Sweet {
 
     private CakeType cake;
 
-    public CakeType getCake() {
-        return cake;
-    }
-
-    public void setCake(CakeType cake) {
-        this.cake = cake;
-    }
-
-    public Cake(){
+    public Cake() {
 
     }
 
     public Cake(int weight, int caloric, double sugarPersent, CakeType cake) {
         super(weight, caloric, sugarPersent);
+        this.cake = cake;
+    }
+
+    public CakeType getCake() {
+        return cake;
+    }
+
+    public void setCake(CakeType cake) {
         this.cake = cake;
     }
 

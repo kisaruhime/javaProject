@@ -1,11 +1,8 @@
 package com.company.bws.helpers;
 
 import com.company.bws.enums.*;
+import com.company.bws.exceptions.SweetLogicException;
 import com.company.bws.objects.*;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 
 public class SweetInitializator {
 //    public static Sweet[] sweetsInitialize(Sweet[] arr) {
@@ -23,13 +20,11 @@ public class SweetInitializator {
 //    }
 
     public static Candy candyInitializator() throws SweetLogicException {
-        //TODO сделать инициализацию из файла и вставить здесь же проверки на исключения
-        //TODO сделать собственное исключение, на случай если вес и калорийность и процент сахара конфеты отрицательные
         int weight = 25 + (int) (Math.random() * 38);
         int caloric = 280 + (int) (Math.random() * 410);
         double sugarPercent = 0.1 + (double) (Math.random() * 0.2);
         if (weight <= 0 || caloric <= 0 || sugarPercent <= 0) {
-            throw new SweetLogicException("weight/caloric/sugarPersent must be bigger than zero");
+            throw new SweetLogicException("Such values of weight, caloric and sugarPercent: " +weight + caloric + sugarPercent+ "are incorrect, all of them must be bigger than zero ");
         }
         return new Candy(weight, caloric, sugarPercent, CandyType.next(), FillingType.next());
         //Integer [] candyValues = FileOutReader.readFromFile("files\\candy.txt");
@@ -41,7 +36,7 @@ public class SweetInitializator {
         int caloric = 310 + (int) (Math.random() * 410);
         double sugarPercent = 0.05 + (double) (Math.random() * 0.2);
         if (weight <= 0 || caloric <= 0 || sugarPercent <= 0) {
-            throw new SweetLogicException("weight/caloric/sugarPersent must be bigger than zero");
+            throw new SweetLogicException("Such values of weight, caloric and sugarPercent: " +weight + caloric + sugarPercent+ "are incorrect, all of them must be bigger than zero ");
         }
         return new Cookie(weight, caloric, sugarPercent, CookieType.next(), CookieFilling.next());
 
@@ -52,7 +47,7 @@ public class SweetInitializator {
         int caloric = 280 + (int) (Math.random() * 390);
         double sugarPercent = 0.05 + (double) (Math.random() * 0.2);
         if (weight <= 0 || caloric <= 0 || sugarPercent <= 0) {
-            throw new SweetLogicException("weight/caloric/sugarPersent must be bigger than zero");
+            throw new SweetLogicException("Such values of weight, caloric and sugarPercent: " +weight + caloric + sugarPercent+ "are incorrect, all of them must be bigger than zero ");
         }
         return new Cake(weight, caloric, sugarPercent, CakeType.next());
 

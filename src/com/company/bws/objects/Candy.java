@@ -2,6 +2,7 @@ package com.company.bws.objects;
 
 import com.company.bws.enums.CandyType;
 import com.company.bws.enums.FillingType;
+import com.company.bws.exceptions.SweetLogicException;
 
 import java.util.Objects;
 
@@ -9,6 +10,17 @@ public class Candy extends Sweet {
 
     private CandyType type;
     private FillingType filling;
+
+
+    public Candy() {
+
+    }
+
+    public Candy(int weight, int caloric, double sugarPersent, CandyType type, FillingType filling) throws SweetLogicException {
+        super(weight, caloric, sugarPersent);
+        this.type = type;
+        this.filling = filling;
+    }
 
     public CandyType getType() {
         return type;
@@ -23,16 +35,6 @@ public class Candy extends Sweet {
     }
 
     public void setFilling(FillingType filling) {
-        this.filling = filling;
-    }
-
-    public Candy() {
-
-    }
-
-    public Candy(int weight, int caloric, double sugarPersent, CandyType type, FillingType filling) throws SweetLogicException {
-        super(weight, caloric, sugarPersent);
-        this.type = type;
         this.filling = filling;
     }
 

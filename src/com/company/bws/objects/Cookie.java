@@ -10,6 +10,17 @@ public class Cookie extends Sweet {
     private CookieType cookie;
     private CookieFilling filling;
 
+
+    public Cookie() {
+
+    }
+
+    public Cookie(int weight, int caloric, double sugarPersent, CookieType cookie, CookieFilling filling) {
+        super(weight, caloric, sugarPersent);
+        this.cookie = cookie;
+        this.filling = filling;
+    }
+
     public CookieType getCookie() {
         return cookie;
     }
@@ -23,16 +34,6 @@ public class Cookie extends Sweet {
     }
 
     public void setFilling(CookieFilling filling) {
-        this.filling = filling;
-    }
-
-    public Cookie() {
-
-    }
-
-    public Cookie(int weight, int caloric, double sugarPersent, CookieType cookie, CookieFilling filling) {
-        super(weight, caloric, sugarPersent);
-        this.cookie = cookie;
         this.filling = filling;
     }
 
