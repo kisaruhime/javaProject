@@ -1,8 +1,9 @@
 package com.company.bws.objects;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class BagSweets {
+public class BagSweets implements Serializable{
     private Sweet[] bag;
     private int weight;
 

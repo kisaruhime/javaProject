@@ -3,10 +3,11 @@ package com.company.bws.objects;
 import com.company.bws.helpers.CakeLoveWrapper;
 import com.company.bws.helpers.CandyLoveWrapper;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class Stock {
+public class Stock implements Serializable{
 
     private BagSweets[] bags;
     private GiftWrapper cakeWrapper;

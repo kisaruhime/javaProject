@@ -1,6 +1,8 @@
 package com.company.bws.objects;
 
-public abstract class Sweet {
+import java.io.Serializable;
+
+public abstract class Sweet implements Serializable{
     private int weight;
     private int caloric;
     private double sugarPersent;

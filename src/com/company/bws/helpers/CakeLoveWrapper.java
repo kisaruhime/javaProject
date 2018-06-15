@@ -5,7 +5,9 @@ import com.company.bws.objects.GiftWrapper;
 import com.company.bws.objects.Sweet;
 import com.company.bws.exceptions.SweetLogicException;
 
-public class CakeLoveWrapper implements GiftWrapper {
+import java.io.Serializable;
+
+public class CakeLoveWrapper implements GiftWrapper, Serializable{
 
     public CakeLoveWrapper() {
     }
