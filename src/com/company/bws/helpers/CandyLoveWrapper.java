@@ -1,7 +1,10 @@
 package com.company.bws.helpers;
 
 import com.company.bws.exceptions.SweetLogicException;
-import com.company.bws.objects.*;
+import com.company.bws.objects.BagSweets;
+import com.company.bws.objects.GiftWrapper;
+import com.company.bws.objects.Sweet;
+
 
 import java.io.Serializable;
 
