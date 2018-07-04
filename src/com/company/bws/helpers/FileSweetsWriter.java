@@ -3,13 +3,12 @@ package com.company.bws.helpers;
 import com.company.bws.objects.Stock;
 import com.company.bws.objects.Sweet;
 
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-
 import java.io.PrintWriter;
+import java.util.List;
 
 
 public class FileSweetsWriter {
@@ -24,10 +23,10 @@ public class FileSweetsWriter {
             bw = new BufferedWriter(fw);
             pw = new PrintWriter(bw);
             //pw.printf("Java %.2g%n");// запись прямо в файл
-            Sweet[] arr;
-            for (int i = 0; i < stock.getBags().length; i++) {
+            List<Sweet> arr;
+            for (int i = 0; i < stock.getBags().size(); i++) {
                 pw.println("Content of gift" + i + " :");
-                arr = stock.getBags()[i].getBag();
+                arr = stock.getBags().get(i).getBag();
                 for (Sweet j : arr) {
                     pw.printf(j.toString());
                     pw.printf("; ");

@@ -2,7 +2,7 @@ package com.company.bws.objects;
 
 import java.io.Serializable;
 
-public abstract class Sweet implements Serializable{
+public abstract class Sweet implements Serializable {
     private int weight;
     private int caloric;
     private double sugarPersent;
