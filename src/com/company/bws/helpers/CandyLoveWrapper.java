@@ -6,9 +6,12 @@ import com.company.bws.objects.GiftWrapper;
 import com.company.bws.objects.Sweet;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import java.io.Serializable;
 
-public class CandyLoveWrapper implements GiftWrapper, Serializable{
+public class CandyLoveWrapper implements GiftWrapper, Serializable {
 
     public CandyLoveWrapper() {
     }
@@ -16,17 +19,16 @@ public class CandyLoveWrapper implements GiftWrapper, Serializable{
     @Override
     public BagSweets wrap() {
         int totalNum = 2 + (int) (Math.random() * 4);
-        Sweet[] sweets = new Sweet[totalNum + 2];
-        try{
+        List<Sweet> sweets = new ArrayList<Sweet>();
+        try {
             for (int i = 0; i < totalNum; i++) {
-                sweets[i] = SweetInitializator.candyInitializator();
+                sweets.add(SweetInitializator.candyInitializator());
             }
-            sweets[totalNum] = SweetInitializator.cookieInitializator();
-            sweets[totalNum + 1] = SweetInitializator.cakeInitializator();
-        }
-       catch (SweetLogicException e){
+            sweets.add(SweetInitializator.cookieInitializator());
+            sweets.add(SweetInitializator.cakeInitializator());
+        } catch (SweetLogicException e) {
             System.out.println(e);
-       }
+        }
         BagSweets newBag = new BagSweets();
         newBag.setBag(sweets);
         newBag.setWeight();

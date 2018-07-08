@@ -1,28 +1,37 @@
 package com.company.bws.objects;
 
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
-public class BagSweets implements Serializable{
-    private Sweet[] bag;
+public class BagSweets implements Serializable {
+
+    private List<Sweet> bag = new ArrayList<Sweet>();
+
     private int weight;
 
-    public BagSweets(){
-        this.bag = new Sweet[]{};
+
+    public BagSweets(List<Sweet> bag) {
+        this.bag = new ArrayList<Sweet>(bag);
+    }
+
+    public BagSweets() {
 
     }
-    public Sweet[] getBag() {
+
+    public List<Sweet> getBag() {
         return bag;
     }
 
-    public void setBag(Sweet[] bag) {
+    public void setBag(List<Sweet> bag) {
         this.bag = bag;
     }
 
+
     public void setWeight() {
-        weight=0;
-        if(this.bag.length != 0) {
-            for (Sweet i : this.bag){
+        weight = 0;
+        if (this.bag.size() != 0) {
+            for (Sweet i : this.bag) {
                 weight += i.getWeight();
             }
         }
@@ -30,11 +39,12 @@ public class BagSweets implements Serializable{
     }
 
     public int getWeight() {
-        if(this.weight == 0){
+        if (this.weight == 0) {
             this.setWeight();
         }
         return weight;
     }
+
     @Override
     public String toString() {
         return "BagSweets{" +
@@ -42,4 +52,6 @@ public class BagSweets implements Serializable{
                 ", weight=" + weight +
                 '}';
     }
+
+
 }

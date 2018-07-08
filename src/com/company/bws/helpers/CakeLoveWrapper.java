@@ -1,28 +1,28 @@
 package com.company.bws.helpers;
 
+import com.company.bws.exceptions.SweetLogicException;
 import com.company.bws.objects.BagSweets;
 import com.company.bws.objects.GiftWrapper;
 import com.company.bws.objects.Sweet;
-import com.company.bws.exceptions.SweetLogicException;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class CakeLoveWrapper implements GiftWrapper, Serializable{
-
+public class CakeLoveWrapper implements GiftWrapper, Serializable {
     public CakeLoveWrapper() {
     }
 
     @Override
-    public  BagSweets wrap() {
-        Sweet[] sweets = new Sweet[5];
+    public BagSweets wrap() {
+        List<Sweet> sweets = new ArrayList<Sweet>();
         try {
             for (int i = 0; i < 3; i++) {
-                sweets[i] = SweetInitializator.cakeInitializator();
+                sweets.add(SweetInitializator.cakeInitializator());
             }
-            sweets[3] = SweetInitializator.cookieInitializator();
-            sweets[4] = SweetInitializator.candyInitializator();
-        }
-        catch (SweetLogicException e){
+            sweets.add(SweetInitializator.cookieInitializator());
+            sweets.add(SweetInitializator.candyInitializator());
+        } catch (SweetLogicException e) {
             System.out.println(e);
         }
         BagSweets newBag = new BagSweets();
