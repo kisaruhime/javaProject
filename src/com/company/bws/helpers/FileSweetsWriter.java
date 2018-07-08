@@ -22,7 +22,6 @@ public class FileSweetsWriter {
             fw = new FileWriter(f, true);
             bw = new BufferedWriter(fw);
             pw = new PrintWriter(bw);
-            //pw.printf("Java %.2g%n");// запись прямо в файл
             List<Sweet> arr;
             for (int i = 0; i < stock.getBags().size(); i++) {
                 pw.println("Content of gift" + i + " :");

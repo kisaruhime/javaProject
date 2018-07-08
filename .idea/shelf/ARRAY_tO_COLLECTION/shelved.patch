@@ -1,0 +1,815 @@
+Index: src/com/company/bws/objects/BagSweets.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.company.bws.objects;\n\npublic class BagSweets {\n    private Sweet[] bag;\n    private int weight;\n\n    public Sweet[] getBag() {\n        return bag;\n    }\n\n    public void setBag(Sweet[] bag) {\n        this.bag = bag;\n    }\n\n\n    public void setWeight() {\n        weight=0;\n        if(this.bag.length != 0) {\n            for (Sweet i : this.bag){\n                    weight += i.getWeight();\n            }\n        }\n\n    }\n\n    public int getWeight() {\n        if(this.weight == 0){\n            this.setWeight();\n        }\n        return weight;\n    }\n\n    public BagSweets(){\n        this.bag = new Sweet[]{};\n\n    }\n\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/bws/objects/BagSweets.java	(revision 67a2dbbefd7b1d6d50eaa2ae35578a2d4099906a)
++++ src/com/company/bws/objects/BagSweets.java	(date 1530438623622)
+@@ -1,21 +1,24 @@
+ package com.company.bws.objects;
+ 
++import java.util.ArrayList;
++import java.util.List;
++
+ public class BagSweets {
+-    private Sweet[] bag;
++    private List<Sweet> bag;
+     private int weight;
+ 
+-    public Sweet[] getBag() {
++    public List<Sweet> getBag() {
+         return bag;
+     }
+ 
+-    public void setBag(Sweet[] bag) {
++    public void setBag(List<Sweet> bag) {
+         this.bag = bag;
+     }
+ 
+ 
+     public void setWeight() {
+         weight=0;
+-        if(this.bag.length != 0) {
++        if(bag.size() != 0) {
+             for (Sweet i : this.bag){
+                     weight += i.getWeight();
+             }
+@@ -31,7 +34,7 @@
+     }
+ 
+     public BagSweets(){
+-        this.bag = new Sweet[]{};
++        this.bag = new ArrayList<Sweet>();
+ 
+     }
+ 
+Index: src/com/company/bws/objects/Cookie.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.company.bws.objects;\n\nimport com.company.bws.enums.CookieFilling;\nimport com.company.bws.enums.CookieType;\n\nimport java.util.Objects;\n\npublic class Cookie extends Sweet {\n\n\n\n\n    private CookieType cookie;\n    private CookieFilling filling;\n\n    public CookieType getCookie() {\n        return cookie;\n    }\n\n    public void setCookie(CookieType cookie) {\n        this.cookie = cookie;\n    }\n\n    public CookieFilling getFilling() {\n        return filling;\n    }\n\n    public void setFilling(CookieFilling filling) {\n        this.filling = filling;\n    }\n\n    public Cookie() {\n\n    }\n\n    public Cookie(int weight, int caloric, double sugarPersent, CookieType cookie, CookieFilling filling) {\n        super(weight, caloric, sugarPersent);\n        this.cookie = cookie;\n        this.filling = filling;\n    }\n\n    @Override\n    public boolean equals(Object o) {\n        if (this == o) return true;\n        if (o == null || getClass() != o.getClass()) return false;\n        Cookie cookie1 = (Cookie) o;\n        return cookie == cookie1.cookie &&\n                filling == cookie1.filling;\n    }\n\n    @Override\n    public int hashCode() {\n\n        return Objects.hash(cookie, filling);\n    }\n\n    @Override\n    public String toString() {\n        return \"Cookie{\" +\n                \"cookie=\" + cookie +\n                \", filling=\" + filling +\n                \", weight=\" + this.getWeight() +\n                '}';\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/bws/objects/Cookie.java	(revision 67a2dbbefd7b1d6d50eaa2ae35578a2d4099906a)
++++ src/com/company/bws/objects/Cookie.java	(date 1530438623632)
+@@ -7,9 +7,6 @@
+ 
+ public class Cookie extends Sweet {
+ 
+-
+-
+-
+     private CookieType cookie;
+     private CookieFilling filling;
+ 
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"aec0768d-4e39-44b2-a05f-927bf3c4dd24\" name=\"Default\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/com/company/bws/objects/Stock.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/com/company/bws/objects/Stock.java\" afterDir=\"false\" />\n    </list>\n    <ignored path=\"$PROJECT_DIR$/out/\" />\n    <option name=\"EXCLUDED_CONVERTED_TO_IGNORED\" value=\"true\" />\n    <option name=\"TRACKING_ENABLED\" value=\"true\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"CoverageDataManager\">\n    <SUITE FILE_PATH=\"coverage/bag_with_sweets$Main.ic\" NAME=\"Main Coverage Results\" MODIFIED=\"1524258887126\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"false\" />\n  </component>\n  <component name=\"FileEditorManager\">\n    <leaf SIDE_TABS_SIZE_LIMIT_KEY=\"300\">\n      <file leaf-file-name=\"FillingType.java\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/enums/FillingType.java\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"204\">\n              <caret line=\"12\" column=\"1\" selection-start-line=\"12\" selection-start-column=\"1\" selection-end-line=\"12\" selection-end-column=\"1\" />\n            </state>\n          </provider>\n        </entry>\n      </file>\n      <file leaf-file-name=\"CandyLoveWrapper.java\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"391\">\n              <caret line=\"23\" column=\"1\" selection-start-line=\"23\" selection-start-column=\"1\" selection-end-line=\"23\" selection-end-column=\"1\" />\n            </state>\n          </provider>\n        </entry>\n      </file>\n      <file leaf-file-name=\"CakeLoveWrapper.java\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"425\">\n              <caret line=\"25\" lean-forward=\"true\" selection-start-line=\"25\" selection-end-line=\"25\" />\n              <folding>\n                <element signature=\"imports\" expanded=\"true\" />\n              </folding>\n            </state>\n          </provider>\n        </entry>\n      </file>\n      <file leaf-file-name=\"ArrayPrint.java\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"272\">\n              <caret line=\"16\" column=\"34\" selection-start-line=\"16\" selection-start-column=\"34\" selection-end-line=\"16\" selection-end-column=\"34\" />\n              <folding>\n                <element signature=\"imports\" expanded=\"true\" />\n              </folding>\n            </state>\n          </provider>\n        </entry>\n      </file>\n      <file leaf-file-name=\"Stock.java\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Stock.java\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"1116\">\n              <caret line=\"62\" column=\"27\" selection-start-line=\"62\" selection-start-column=\"27\" selection-end-line=\"62\" selection-end-column=\"27\" />\n              <folding>\n                <element signature=\"imports\" expanded=\"true\" />\n                <element signature=\"e#500#501#0\" expanded=\"true\" />\n                <element signature=\"e#527#528#0\" expanded=\"true\" />\n                <element signature=\"e#572#573#0\" expanded=\"true\" />\n                <element signature=\"e#604#605#0\" expanded=\"true\" />\n                <element signature=\"e#855#856#0\" expanded=\"true\" />\n                <element signature=\"e#889#890#0\" expanded=\"true\" />\n                <element signature=\"e#748#749#0\" expanded=\"true\" />\n                <element signature=\"e#794#795#0\" expanded=\"true\" />\n                <element signature=\"e#843#844#0\" expanded=\"true\" />\n                <element signature=\"e#878#879#0\" expanded=\"true\" />\n                <element signature=\"e#944#945#0\" expanded=\"true\" />\n                <element signature=\"e#992#993#0\" expanded=\"true\" />\n              </folding>\n            </state>\n          </provider>\n        </entry>\n      </file>\n      <file leaf-file-name=\"Sweet.java\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Sweet.java\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"34\">\n              <caret line=\"2\" column=\"22\" selection-start-line=\"2\" selection-start-column=\"22\" selection-end-line=\"2\" selection-end-column=\"22\" />\n            </state>\n          </provider>\n        </entry>\n      </file>\n      <file leaf-file-name=\"Candy.java\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Candy.java\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"520\">\n              <caret line=\"46\" column=\"41\" selection-start-line=\"42\" selection-start-column=\"8\" selection-end-line=\"46\" selection-end-column=\"41\" />\n              <folding>\n                <element signature=\"imports\" expanded=\"true\" />\n              </folding>\n            </state>\n          </provider>\n        </entry>\n      </file>\n      <file leaf-file-name=\"BagSweets.java\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"51\">\n              <caret line=\"3\" column=\"17\" selection-start-line=\"3\" selection-start-column=\"12\" selection-end-line=\"3\" selection-end-column=\"17\" />\n            </state>\n          </provider>\n        </entry>\n      </file>\n      <file leaf-file-name=\"GiftWrapper.java\" pinned=\"false\" current-in-tab=\"false\">\n        <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"85\">\n              <caret line=\"5\" selection-start-line=\"5\" selection-end-line=\"5\" />\n            </state>\n          </provider>\n        </entry>\n      </file>\n      <file leaf-file-name=\"Main.java\" pinned=\"false\" current-in-tab=\"true\">\n        <entry file=\"file://$PROJECT_DIR$/src/com/company/Main.java\">\n          <provider selected=\"true\" editor-type-id=\"text-editor\">\n            <state relative-caret-position=\"136\">\n              <caret line=\"13\" column=\"42\" lean-forward=\"true\" selection-start-line=\"13\" selection-start-column=\"42\" selection-end-line=\"13\" selection-end-column=\"42\" />\n            </state>\n          </provider>\n        </entry>\n      </file>\n    </leaf>\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Enum\" />\n        <option value=\"Interface\" />\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"IdeDocumentHistory\">\n    <option name=\"CHANGED_PATHS\">\n      <list>\n        <option value=\"$PROJECT_DIR$/src/com/company/Biscuit.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/Sweet.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/SweetInitializator.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/BagSweets.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/SweetSugarSearch.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/ArrayPrint.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/BubbleSort.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/IntersectionSort.java\" />\n        <option value=\"$PROJECT_DIR$/src/CandyType.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/Candy.java\" />\n        <option value=\"$PROJECT_DIR$/src/FillingType.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/Cake.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/CookieType.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/CakeType.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/Cookie.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/CookieFilling.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/sorts/IntersectionSort.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/objects/Cake.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/objects/Candy.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/objects/Sweet.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/enums/CandyType.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/enums/CookieFilling.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/enums/FillingType.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/enums/CookieType.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/Main.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/helpers/SweetInitializator.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/enums/CakeType.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java\" />\n        <option value=\"$PROJECT_DIR$/src/com/company/bws/objects/Stock.java\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"ProjectFrameBounds\" extendedState=\"6\">\n    <option name=\"x\" value=\"212\" />\n    <option name=\"width\" value=\"1400\" />\n    <option name=\"height\" value=\"860\" />\n  </component>\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\n  <component name=\"ProjectView\">\n    <navigator proportions=\"\" version=\"1\">\n      <foldersAlwaysOnTop value=\"true\" />\n    </navigator>\n    <panes>\n      <pane id=\"AndroidView\" />\n      <pane id=\"Scope\" />\n      <pane id=\"ProjectPane\">\n        <subPane>\n          <expand>\n            <path>\n              <item name=\"bag with sweets\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"bag with sweets\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"bag with sweets\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"bag with sweets\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"src\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"bag with sweets\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"bag with sweets\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"src\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"company\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"bag with sweets\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"bag with sweets\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"src\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"company\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"bws\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"bag with sweets\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"bag with sweets\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"src\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"company\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"bws\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"enums\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"bag with sweets\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"bag with sweets\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"src\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"company\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"bws\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"helpers\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n            <path>\n              <item name=\"bag with sweets\" type=\"b2602c69:ProjectViewProjectNode\" />\n              <item name=\"bag with sweets\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"src\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"company\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"bws\" type=\"462c0819:PsiDirectoryNode\" />\n              <item name=\"objects\" type=\"462c0819:PsiDirectoryNode\" />\n            </path>\n          </expand>\n          <select />\n        </subPane>\n      </pane>\n      <pane id=\"PackagesPane\" />\n    </panes>\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"RunDashboard\">\n    <option name=\"ruleStates\">\n      <list>\n        <RuleState>\n          <option name=\"name\" value=\"ConfigurationTypeDashboardGroupingRule\" />\n        </RuleState>\n        <RuleState>\n          <option name=\"name\" value=\"StatusDashboardGroupingRule\" />\n        </RuleState>\n      </list>\n    </option>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"Main\" type=\"Application\" factoryName=\"Application\" temporary=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.company.Main\" />\n      <module name=\"bag with sweets\" />\n      <option name=\"WORKING_DIRECTORY\" value=\"file://$PROJECT_DIR$\" />\n      <RunnerSettings RunnerId=\"Run\" />\n      <ConfigurationWrapper RunnerId=\"Run\" />\n    </configuration>\n    <configuration default=\"true\" type=\"Application\" factoryName=\"Application\">\n      <extension name=\"coverage\" enabled=\"false\" merge=\"false\" sample_coverage=\"true\" runner=\"idea\" />\n      <option name=\"MAIN_CLASS_NAME\" />\n      <option name=\"VM_PARAMETERS\" />\n      <option name=\"PROGRAM_PARAMETERS\" />\n      <option name=\"WORKING_DIRECTORY\" />\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"false\" />\n      <option name=\"ALTERNATIVE_JRE_PATH\" />\n      <option name=\"ENABLE_SWING_INSPECTOR\" value=\"false\" />\n      <option name=\"ENV_VARIABLES\" />\n      <option name=\"PASS_PARENT_ENVS\" value=\"true\" />\n      <module name=\"\" />\n      <envs />\n      <method />\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.Main\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SvnConfiguration\">\n    <configuration />\n  </component>\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"aec0768d-4e39-44b2-a05f-927bf3c4dd24\" name=\"Default\" comment=\"\" />\n      <created>1523645940570</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1523645940570</updated>\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"Initial commit\">\n      <created>1523778244040</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1523778244040</updated>\n    </task>\n    <task id=\"LOCAL-00002\" summary=\"Example changes and commit\">\n      <created>1523778995028</created>\n      <option name=\"number\" value=\"00002\" />\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1523778995028</updated>\n    </task>\n    <task id=\"LOCAL-00003\" summary=\"Example changes and commit\">\n      <created>1523899547127</created>\n      <option name=\"number\" value=\"00003\" />\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1523899547127</updated>\n    </task>\n    <task id=\"LOCAL-00004\" summary=\"Adding interface, two classes for wrapping and stock\">\n      <created>1524259253511</created>\n      <option name=\"number\" value=\"00004\" />\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1524259253511</updated>\n    </task>\n    <task id=\"LOCAL-00005\" summary=\"Adding interface, two classes for wrapping and stock\">\n      <created>1524327808295</created>\n      <option name=\"number\" value=\"00005\" />\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1524327808295</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"6\" />\n    <servers />\n  </component>\n  <component name=\"ToolWindowManager\">\n    <frame x=\"-8\" y=\"-8\" width=\"1616\" height=\"876\" extended-state=\"6\" />\n    <layout>\n      <window_info anchor=\"right\" id=\"Palette\" order=\"4\" />\n      <window_info anchor=\"bottom\" id=\"TODO\" order=\"6\" />\n      <window_info anchor=\"bottom\" id=\"Messages\" order=\"9\" weight=\"0.3292683\" />\n      <window_info anchor=\"right\" id=\"Palette&#9;\" order=\"8\" />\n      <window_info id=\"Image Layers\" order=\"2\" />\n      <window_info anchor=\"right\" id=\"Capture Analysis\" order=\"5\" />\n      <window_info anchor=\"bottom\" id=\"Event Log\" order=\"10\" sideWeight=\"0.50064266\" side_tool=\"true\" weight=\"0.3292683\" />\n      <window_info anchor=\"right\" id=\"Maven Projects\" order=\"7\" />\n      <window_info anchor=\"bottom\" id=\"Version Control\" order=\"7\" sideWeight=\"0.4993573\" weight=\"0.3292683\" />\n      <window_info active=\"true\" anchor=\"bottom\" id=\"Run\" order=\"2\" visible=\"true\" weight=\"0.3292683\" />\n      <window_info anchor=\"bottom\" id=\"Terminal\" order=\"8\" weight=\"0.3292683\" />\n      <window_info id=\"Capture Tool\" order=\"6\" />\n      <window_info id=\"Designer\" order=\"3\" />\n      <window_info content_ui=\"combo\" id=\"Project\" order=\"0\" visible=\"true\" weight=\"0.23714653\" />\n      <window_info id=\"Structure\" order=\"1\" side_tool=\"true\" weight=\"0.25\" />\n      <window_info anchor=\"right\" id=\"Ant Build\" order=\"2\" weight=\"0.25\" />\n      <window_info id=\"UI Designer\" order=\"4\" />\n      <window_info anchor=\"right\" id=\"Theme Preview\" order=\"6\" />\n      <window_info id=\"Favorites\" order=\"5\" side_tool=\"true\" />\n      <window_info anchor=\"bottom\" id=\"Debug\" order=\"3\" weight=\"0.10704607\" />\n      <window_info anchor=\"right\" content_ui=\"combo\" id=\"Hierarchy\" order=\"3\" weight=\"0.25\" />\n      <window_info anchor=\"right\" id=\"Coverage\" order=\"0\" side_tool=\"true\" weight=\"0.32969153\" />\n      <window_info anchor=\"bottom\" id=\"Inspection\" order=\"5\" weight=\"0.4\" />\n      <window_info anchor=\"right\" id=\"Commander\" internal_type=\"SLIDING\" order=\"1\" type=\"SLIDING\" weight=\"0.4\" />\n      <window_info anchor=\"bottom\" id=\"Message\" order=\"0\" />\n      <window_info anchor=\"bottom\" id=\"Cvs\" order=\"4\" weight=\"0.25\" />\n      <window_info anchor=\"bottom\" id=\"Find\" order=\"1\" weight=\"0.3292683\" />\n    </layout>\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State>\n              <option name=\"RECENTLY_FILTERED_USER_GROUPS\">\n                <collection />\n              </option>\n              <option name=\"RECENTLY_FILTERED_BRANCH_GROUPS\">\n                <collection />\n              </option>\n              <option name=\"COLUMN_ORDER\">\n                <list>\n                  <option value=\"0\" />\n                  <option value=\"1\" />\n                  <option value=\"2\" />\n                  <option value=\"3\" />\n                </list>\n              </option>\n            </State>\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsContentAnnotationSettings\">\n    <option name=\"myLimit\" value=\"2678400000\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"Initial commit\" />\n    <MESSAGE value=\"Example changes and commit\" />\n    <MESSAGE value=\"Adding interface, two classes for wrapping and stock\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Adding interface, two classes for wrapping and stock\" />\n  </component>\n  <component name=\"XDebuggerManager\">\n    <breakpoint-manager>\n      <breakpoints>\n        <line-breakpoint enabled=\"true\" type=\"java-line\">\n          <url>file://$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java</url>\n          <line>16</line>\n          <properties />\n          <option name=\"timeStamp\" value=\"9\" />\n        </line-breakpoint>\n      </breakpoints>\n      <option name=\"time\" value=\"12\" />\n    </breakpoint-manager>\n  </component>\n  <component name=\"editorHistoryManager\">\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Sweet.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"34\">\n          <caret line=\"2\" column=\"22\" selection-start-line=\"2\" selection-start-column=\"22\" selection-end-line=\"2\" selection-end-column=\"22\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/enums/CookieType.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"34\">\n          <caret line=\"2\" column=\"12\" selection-start-line=\"2\" selection-start-column=\"12\" selection-end-line=\"2\" selection-end-column=\"12\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/enums/FillingType.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"136\">\n          <caret line=\"8\" lean-forward=\"true\" selection-start-line=\"8\" selection-end-line=\"8\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/Main.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"289\">\n          <caret line=\"17\" selection-start-line=\"17\" selection-end-line=\"17\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/sorts/BubbleSort.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"289\">\n          <caret line=\"17\" column=\"9\" selection-start-line=\"17\" selection-start-column=\"9\" selection-end-line=\"17\" selection-end-column=\"9\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetSugarSearch.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"204\">\n          <caret line=\"12\" column=\"1\" selection-start-line=\"12\" selection-start-column=\"1\" selection-end-line=\"12\" selection-end-column=\"1\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"34\">\n          <caret line=\"2\" column=\"23\" selection-start-line=\"2\" selection-start-column=\"13\" selection-end-line=\"2\" selection-end-column=\"23\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetInitializator.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"238\">\n          <caret line=\"14\" column=\"5\" selection-start-line=\"14\" selection-start-column=\"5\" selection-end-line=\"14\" selection-end-column=\"5\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/sorts/IntersectionSort.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"357\">\n          <caret line=\"21\" selection-start-line=\"21\" selection-end-line=\"21\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"952\">\n          <caret line=\"56\" column=\"46\" selection-start-line=\"56\" selection-start-column=\"46\" selection-end-line=\"56\" selection-end-column=\"46\" />\n          <folding>\n            <element signature=\"imports\" expanded=\"true\" />\n          </folding>\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"459\">\n          <caret line=\"31\" column=\"22\" selection-start-line=\"31\" selection-start-column=\"22\" selection-end-line=\"31\" selection-end-column=\"22\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/readme.md\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"17\">\n          <caret line=\"1\" lean-forward=\"true\" selection-start-line=\"1\" selection-end-line=\"1\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/Main.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"340\">\n          <caret line=\"20\" lean-forward=\"true\" selection-start-line=\"20\" selection-end-line=\"20\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/sorts/BubbleSort.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"289\">\n          <caret line=\"17\" column=\"9\" selection-start-line=\"17\" selection-start-column=\"9\" selection-end-line=\"17\" selection-end-column=\"9\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetSugarSearch.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"204\">\n          <caret line=\"12\" column=\"1\" lean-forward=\"true\" selection-start-line=\"12\" selection-start-column=\"1\" selection-end-line=\"12\" selection-end-column=\"1\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"34\">\n          <caret line=\"2\" column=\"23\" selection-start-line=\"2\" selection-start-column=\"13\" selection-end-line=\"2\" selection-end-column=\"23\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetInitializator.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"51\">\n          <caret line=\"3\" column=\"64\" selection-start-line=\"3\" selection-start-column=\"64\" selection-end-line=\"3\" selection-end-column=\"64\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/sorts/IntersectionSort.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"357\">\n          <caret line=\"21\" lean-forward=\"true\" selection-start-line=\"21\" selection-end-line=\"21\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"816\">\n          <caret line=\"56\" column=\"46\" selection-start-line=\"56\" selection-start-column=\"46\" selection-end-line=\"56\" selection-end-column=\"46\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"459\">\n          <caret line=\"31\" column=\"22\" lean-forward=\"true\" selection-start-line=\"31\" selection-start-column=\"22\" selection-end-line=\"31\" selection-end-column=\"22\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Candy.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"816\">\n          <caret line=\"56\" column=\"46\" selection-start-line=\"56\" selection-start-column=\"46\" selection-end-line=\"56\" selection-end-column=\"46\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Sweet.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"425\">\n          <caret line=\"39\" column=\"5\" lean-forward=\"true\" selection-start-line=\"39\" selection-start-column=\"5\" selection-end-line=\"39\" selection-end-column=\"5\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/Main.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"85\">\n          <caret line=\"5\" selection-start-line=\"5\" selection-end-line=\"5\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Cake.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"612\">\n          <caret line=\"40\" column=\"32\" selection-start-line=\"40\" selection-start-column=\"32\" selection-end-line=\"40\" selection-end-column=\"32\" />\n          <folding>\n            <element signature=\"imports\" expanded=\"true\" />\n          </folding>\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"748\">\n          <caret line=\"52\" column=\"18\" selection-start-line=\"52\" selection-start-column=\"18\" selection-end-line=\"52\" selection-end-column=\"18\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"323\">\n          <caret line=\"25\" column=\"1\" lean-forward=\"true\" selection-start-line=\"25\" selection-start-column=\"1\" selection-end-line=\"25\" selection-end-column=\"1\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Candy.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"748\">\n          <caret line=\"52\" column=\"18\" selection-start-line=\"52\" selection-start-column=\"18\" selection-end-line=\"52\" selection-end-column=\"18\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Sweet.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"119\">\n          <caret line=\"8\" column=\"22\" lean-forward=\"true\" selection-start-line=\"8\" selection-start-column=\"22\" selection-end-line=\"8\" selection-end-column=\"22\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetInitializator.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"85\">\n          <caret line=\"5\" lean-forward=\"true\" selection-start-line=\"5\" selection-end-line=\"5\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/Biscuit.java\" />\n    <entry file=\"file://$PROJECT_DIR$/readme.md\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"17\">\n          <caret line=\"1\" lean-forward=\"true\" selection-start-line=\"1\" selection-end-line=\"1\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/sorts/BubbleSort.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"68\">\n          <caret line=\"4\" column=\"13\" selection-start-line=\"4\" selection-start-column=\"13\" selection-end-line=\"4\" selection-end-column=\"13\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"119\">\n          <caret line=\"7\" column=\"13\" selection-start-line=\"7\" selection-start-column=\"13\" selection-end-line=\"7\" selection-end-column=\"13\" />\n          <folding>\n            <element signature=\"imports\" expanded=\"true\" />\n          </folding>\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/sorts/IntersectionSort.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"68\">\n          <caret line=\"4\" column=\"13\" selection-start-line=\"4\" selection-start-column=\"13\" selection-end-line=\"4\" selection-end-column=\"13\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Cake.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"34\">\n          <caret line=\"2\" selection-start-line=\"2\" selection-end-line=\"4\" selection-end-column=\"25\" />\n          <folding>\n            <element signature=\"imports\" expanded=\"true\" />\n          </folding>\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetSugarSearch.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"68\">\n          <caret line=\"5\" column=\"13\" selection-start-line=\"5\" selection-start-column=\"13\" selection-end-line=\"5\" selection-end-column=\"13\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetInitializator.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"510\">\n          <caret line=\"34\" column=\"48\" selection-start-line=\"34\" selection-start-column=\"48\" selection-end-line=\"34\" selection-end-column=\"48\" />\n          <folding>\n            <element signature=\"imports\" expanded=\"true\" />\n          </folding>\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/enums/CakeType.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"170\">\n          <caret line=\"10\" column=\"61\" selection-start-line=\"10\" selection-start-column=\"61\" selection-end-line=\"10\" selection-end-column=\"61\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/enums/CandyType.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"34\">\n          <caret line=\"2\" column=\"12\" selection-start-line=\"2\" selection-start-column=\"12\" selection-end-line=\"2\" selection-end-column=\"12\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/enums/CookieFilling.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"204\">\n          <caret line=\"12\" column=\"5\" selection-start-line=\"12\" selection-start-column=\"5\" selection-end-line=\"12\" selection-end-column=\"5\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/enums/CookieType.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"34\">\n          <caret line=\"2\" column=\"12\" selection-start-line=\"2\" selection-start-column=\"12\" selection-end-line=\"2\" selection-end-column=\"12\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/enums/FillingType.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"204\">\n          <caret line=\"12\" column=\"1\" selection-start-line=\"12\" selection-start-column=\"1\" selection-end-line=\"12\" selection-end-column=\"1\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"272\">\n          <caret line=\"16\" column=\"34\" selection-start-line=\"16\" selection-start-column=\"34\" selection-end-line=\"16\" selection-end-column=\"34\" />\n          <folding>\n            <element signature=\"imports\" expanded=\"true\" />\n          </folding>\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"85\">\n          <caret line=\"5\" selection-start-line=\"5\" selection-end-line=\"5\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"425\">\n          <caret line=\"25\" lean-forward=\"true\" selection-start-line=\"25\" selection-end-line=\"25\" />\n          <folding>\n            <element signature=\"imports\" expanded=\"true\" />\n          </folding>\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"391\">\n          <caret line=\"23\" column=\"1\" selection-start-line=\"23\" selection-start-column=\"1\" selection-end-line=\"23\" selection-end-column=\"1\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Sweet.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"34\">\n          <caret line=\"2\" column=\"22\" selection-start-line=\"2\" selection-start-column=\"22\" selection-end-line=\"2\" selection-end-column=\"22\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Candy.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"520\">\n          <caret line=\"46\" column=\"41\" selection-start-line=\"42\" selection-start-column=\"8\" selection-end-line=\"46\" selection-end-column=\"41\" />\n          <folding>\n            <element signature=\"imports\" expanded=\"true\" />\n          </folding>\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"51\">\n          <caret line=\"3\" column=\"17\" selection-start-line=\"3\" selection-start-column=\"12\" selection-end-line=\"3\" selection-end-column=\"17\" />\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/bws/objects/Stock.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"1116\">\n          <caret line=\"62\" column=\"27\" selection-start-line=\"62\" selection-start-column=\"27\" selection-end-line=\"62\" selection-end-column=\"27\" />\n          <folding>\n            <element signature=\"imports\" expanded=\"true\" />\n            <element signature=\"e#500#501#0\" expanded=\"true\" />\n            <element signature=\"e#527#528#0\" expanded=\"true\" />\n            <element signature=\"e#572#573#0\" expanded=\"true\" />\n            <element signature=\"e#604#605#0\" expanded=\"true\" />\n            <element signature=\"e#855#856#0\" expanded=\"true\" />\n            <element signature=\"e#889#890#0\" expanded=\"true\" />\n            <element signature=\"e#748#749#0\" expanded=\"true\" />\n            <element signature=\"e#794#795#0\" expanded=\"true\" />\n            <element signature=\"e#843#844#0\" expanded=\"true\" />\n            <element signature=\"e#878#879#0\" expanded=\"true\" />\n            <element signature=\"e#944#945#0\" expanded=\"true\" />\n            <element signature=\"e#992#993#0\" expanded=\"true\" />\n          </folding>\n        </state>\n      </provider>\n    </entry>\n    <entry file=\"file://$PROJECT_DIR$/src/com/company/Main.java\">\n      <provider selected=\"true\" editor-type-id=\"text-editor\">\n        <state relative-caret-position=\"136\">\n          <caret line=\"13\" column=\"42\" lean-forward=\"true\" selection-start-line=\"13\" selection-start-column=\"42\" selection-end-line=\"13\" selection-end-column=\"42\" />\n        </state>\n      </provider>\n    </entry>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 67a2dbbefd7b1d6d50eaa2ae35578a2d4099906a)
++++ .idea/workspace.xml	(date 1530438661309)
+@@ -6,7 +6,9 @@
+       <change beforePath="$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/company/bws/objects/Candy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/bws/objects/Candy.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/com/company/bws/objects/Stock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/bws/objects/Stock.java" afterDir="false" />
+     </list>
+     <ignored path="$PROJECT_DIR$/out/" />
+@@ -31,77 +33,60 @@
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="CandyLoveWrapper.java" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java">
++      <file leaf-file-name="CookieType.java" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CookieType.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="391">
+-              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
++            <state relative-caret-position="34">
++              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="CakeLoveWrapper.java" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java">
++      <file leaf-file-name="CookieFilling.java" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CookieFilling.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="425">
+-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+-              <folding>
+-                <element signature="imports" expanded="true" />
+-              </folding>
++            <state relative-caret-position="204">
++              <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="ArrayPrint.java" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java">
++      <file leaf-file-name="CandyType.java" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CandyType.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="272">
+-              <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+-              <folding>
+-                <element signature="imports" expanded="true" />
+-              </folding>
++            <state relative-caret-position="34">
++              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="Stock.java" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Stock.java">
++      <file leaf-file-name="CakeType.java" pinned="false" current-in-tab="true">
++        <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CakeType.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="1116">
+-              <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
+-              <folding>
+-                <element signature="imports" expanded="true" />
+-                <element signature="e#500#501#0" expanded="true" />
+-                <element signature="e#527#528#0" expanded="true" />
+-                <element signature="e#572#573#0" expanded="true" />
+-                <element signature="e#604#605#0" expanded="true" />
+-                <element signature="e#855#856#0" expanded="true" />
+-                <element signature="e#889#890#0" expanded="true" />
+-                <element signature="e#748#749#0" expanded="true" />
+-                <element signature="e#794#795#0" expanded="true" />
+-                <element signature="e#843#844#0" expanded="true" />
+-                <element signature="e#878#879#0" expanded="true" />
+-                <element signature="e#944#945#0" expanded="true" />
+-                <element signature="e#992#993#0" expanded="true" />
+-              </folding>
++            <state relative-caret-position="170">
++              <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="Sweet.java" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Sweet.java">
++      <file leaf-file-name="CandyLoveWrapper.java" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="34">
+-              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
++            <state relative-caret-position="255">
++              <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="52" />
++              <folding>
++                <element signature="imports" expanded="true" />
++                <element signature="e#356#363#0" expanded="true" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="Candy.java" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Candy.java">
++      <file leaf-file-name="SweetInitializator.java" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetInitializator.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="520">
+-              <caret line="46" column="41" selection-start-line="42" selection-start-column="8" selection-end-line="46" selection-end-column="41" />
++            <state relative-caret-position="561">
++              <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
+               <folding>
+                 <element signature="imports" expanded="true" />
+               </folding>
+@@ -109,29 +94,41 @@
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="BagSweets.java" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java">
++      <file leaf-file-name="CakeLoveWrapper.java" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="51">
+-              <caret line="3" column="17" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="17" />
++            <state relative-caret-position="459">
++              <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
++              <folding>
++                <element signature="imports" expanded="true" />
++                <element signature="e#391#398#0" expanded="true" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="GiftWrapper.java" pinned="false" current-in-tab="false">
+-        <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java">
++      <file leaf-file-name="ArrayPrint.java" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="85">
+-              <caret line="5" selection-start-line="5" selection-end-line="5" />
++            <state relative-caret-position="374">
++              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
++              <folding>
++                <element signature="imports" expanded="true" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+       </file>
+-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+-        <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
++      <file leaf-file-name="Stock.java" pinned="false" current-in-tab="false">
++        <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Stock.java">
+           <provider selected="true" editor-type-id="text-editor">
+-            <state relative-caret-position="136">
+-              <caret line="13" column="42" lean-forward="true" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
++            <state relative-caret-position="204">
++              <caret line="12" column="26" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="26" />
++              <folding>
++                <element signature="imports" expanded="true" />
++                <element signature="e#1667#1668#0" expanded="true" />
++                <element signature="e#1735#1736#0" expanded="true" />
++              </folding>
+             </state>
+           </provider>
+         </entry>
+@@ -169,12 +166,9 @@
+         <option value="$PROJECT_DIR$/src/com/company/CakeType.java" />
+         <option value="$PROJECT_DIR$/src/com/company/Cookie.java" />
+         <option value="$PROJECT_DIR$/src/com/company/CookieFilling.java" />
+-        <option value="$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java" />
+         <option value="$PROJECT_DIR$/src/com/company/bws/sorts/IntersectionSort.java" />
+         <option value="$PROJECT_DIR$/src/com/company/bws/objects/Cake.java" />
+-        <option value="$PROJECT_DIR$/src/com/company/bws/objects/Candy.java" />
+         <option value="$PROJECT_DIR$/src/com/company/bws/objects/Sweet.java" />
+-        <option value="$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java" />
+         <option value="$PROJECT_DIR$/src/com/company/bws/enums/CandyType.java" />
+         <option value="$PROJECT_DIR$/src/com/company/bws/enums/CookieFilling.java" />
+         <option value="$PROJECT_DIR$/src/com/company/bws/enums/FillingType.java" />
+@@ -182,11 +176,14 @@
+         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
+         <option value="$PROJECT_DIR$/src/com/company/bws/helpers/SweetInitializator.java" />
+         <option value="$PROJECT_DIR$/src/com/company/bws/enums/CakeType.java" />
+-        <option value="$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java" />
+         <option value="$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java" />
+-        <option value="$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java" />
+-        <option value="$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java" />
+         <option value="$PROJECT_DIR$/src/com/company/bws/objects/Stock.java" />
++        <option value="$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java" />
++        <option value="$PROJECT_DIR$/src/com/company/bws/objects/Candy.java" />
++        <option value="$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java" />
++        <option value="$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java" />
++        <option value="$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java" />
++        <option value="$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java" />
+       </list>
+     </option>
+   </component>
+@@ -201,8 +198,9 @@
+       <foldersAlwaysOnTop value="true" />
+     </navigator>
+     <panes>
++      <pane id="PackagesPane" />
++      <pane id="Scope" />
+       <pane id="AndroidView" />
+-      <pane id="Scope" />
+       <pane id="ProjectPane">
+         <subPane>
+           <expand>
+@@ -256,7 +254,6 @@
+           <select />
+         </subPane>
+       </pane>
+-      <pane id="PackagesPane" />
+     </panes>
+   </component>
+   <component name="PropertiesComponent">
+@@ -349,32 +346,39 @@
+       <option name="project" value="LOCAL" />
+       <updated>1524327808295</updated>
+     </task>
+-    <option name="localTasksCounter" value="6" />
++    <task id="LOCAL-00006" summary="Changing interface">
++      <created>1524343543071</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1524343543071</updated>
++    </task>
++    <option name="localTasksCounter" value="7" />
+     <servers />
+   </component>
+   <component name="ToolWindowManager">
+     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
++    <editor active="true" />
+     <layout>
+       <window_info anchor="right" id="Palette" order="4" />
+       <window_info anchor="bottom" id="TODO" order="6" />
+-      <window_info anchor="bottom" id="Messages" order="9" weight="0.3292683" />
+       <window_info anchor="right" id="Palette&#9;" order="8" />
+       <window_info id="Image Layers" order="2" />
+       <window_info anchor="right" id="Capture Analysis" order="5" />
+       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50064266" side_tool="true" weight="0.3292683" />
+       <window_info anchor="right" id="Maven Projects" order="7" />
++      <window_info anchor="bottom" id="Run" order="2" weight="0.3292683" />
+       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4993573" weight="0.3292683" />
+-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3292683" />
+       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3292683" />
+       <window_info id="Capture Tool" order="6" />
+       <window_info id="Designer" order="3" />
+-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23714653" />
++      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2403599" />
+       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+       <window_info id="UI Designer" order="4" />
+       <window_info anchor="right" id="Theme Preview" order="6" />
+-      <window_info id="Favorites" order="5" side_tool="true" />
+       <window_info anchor="bottom" id="Debug" order="3" weight="0.10704607" />
++      <window_info id="Favorites" order="5" side_tool="true" />
+       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.32969153" />
+       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+@@ -382,6 +386,7 @@
+       <window_info anchor="bottom" id="Message" order="0" />
+       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+       <window_info anchor="bottom" id="Find" order="1" weight="0.3292683" />
++      <window_info anchor="bottom" id="Messages" order="9" weight="0.3292683" />
+     </layout>
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -417,14 +422,15 @@
+     <MESSAGE value="Initial commit" />
+     <MESSAGE value="Example changes and commit" />
+     <MESSAGE value="Adding interface, two classes for wrapping and stock" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Adding interface, two classes for wrapping and stock" />
++    <MESSAGE value="Changing interface" />
++    <option name="LAST_COMMIT_MESSAGE" value="Changing interface" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+       <breakpoints>
+         <line-breakpoint enabled="true" type="java-line">
+-          <url>file://$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java</url>
+-          <line>16</line>
++          <url />
++          <line>18</line>
+           <properties />
+           <option name="timeStamp" value="9" />
+         </line-breakpoint>
+@@ -657,169 +663,167 @@
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/sorts/IntersectionSort.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="119">
+-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+-          <folding>
+-            <element signature="imports" expanded="true" />
+-          </folding>
++        <state relative-caret-position="68">
++          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/sorts/IntersectionSort.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="68">
+-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
++        <state relative-caret-position="136">
++          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Cake.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Sweet.java">
+       <provider selected="true" editor-type-id="text-editor">
+         <state relative-caret-position="34">
+-          <caret line="2" selection-start-line="2" selection-end-line="4" selection-end-column="25" />
+-          <folding>
+-            <element signature="imports" expanded="true" />
+-          </folding>
++          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetSugarSearch.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="68">
+-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
++        <state relative-caret-position="85">
++          <caret line="5" selection-start-line="5" selection-end-line="5" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetInitializator.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Cookie.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="510">
+-          <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
++        <state relative-caret-position="136">
++          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+           <folding>
+             <element signature="imports" expanded="true" />
+           </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CakeType.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Candy.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="170">
+-          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
++        <state relative-caret-position="61">
++          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
++          <folding>
++            <element signature="imports" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CandyType.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Cake.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="34">
+-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
++        <state relative-caret-position="102">
++          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
++          <folding>
++            <element signature="imports" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CookieFilling.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="204">
+-          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
++        <state relative-caret-position="408">
++          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
++          <folding>
++            <element signature="imports" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CookieType.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetSugarSearch.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="34">
+-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
++        <state relative-caret-position="68">
++          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/FillingType.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/SweetInitializator.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="204">
+-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
++        <state relative-caret-position="561">
++          <caret line="34" column="48" selection-start-line="34" selection-start-column="48" selection-end-line="34" selection-end-column="48" />
++          <folding>
++            <element signature="imports" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="272">
+-          <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
++        <state relative-caret-position="255">
++          <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="52" />
+           <folding>
+             <element signature="imports" expanded="true" />
++            <element signature="e#356#363#0" expanded="true" />
+           </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/GiftWrapper.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="85">
+-          <caret line="5" selection-start-line="5" selection-end-line="5" />
++        <state relative-caret-position="459">
++          <caret line="27" column="1" lean-forward="true" selection-start-line="27" selection-start-column="1" selection-end-line="27" selection-end-column="1" />
++          <folding>
++            <element signature="imports" expanded="true" />
++            <element signature="e#391#398#0" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/CakeLoveWrapper.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Stock.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="425">
+-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
++        <state relative-caret-position="204">
++          <caret line="12" column="26" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="26" />
+           <folding>
+             <element signature="imports" expanded="true" />
++            <element signature="e#1667#1668#0" expanded="true" />
++            <element signature="e#1735#1736#0" expanded="true" />
+           </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/CandyLoveWrapper.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/helpers/ArrayPrint.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="391">
+-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
++        <state relative-caret-position="374">
++          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
++          <folding>
++            <element signature="imports" expanded="true" />
++          </folding>
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Sweet.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/FillingType.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="34">
+-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
++        <state relative-caret-position="204">
++          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Candy.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CookieType.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="520">
+-          <caret line="46" column="41" selection-start-line="42" selection-start-column="8" selection-end-line="46" selection-end-column="41" />
+-          <folding>
+-            <element signature="imports" expanded="true" />
+-          </folding>
++        <state relative-caret-position="34">
++          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/BagSweets.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CookieFilling.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="51">
+-          <caret line="3" column="17" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="17" />
++        <state relative-caret-position="204">
++          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/bws/objects/Stock.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CandyType.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="1116">
+-          <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
+-          <folding>
+-            <element signature="imports" expanded="true" />
+-            <element signature="e#500#501#0" expanded="true" />
+-            <element signature="e#527#528#0" expanded="true" />
+-            <element signature="e#572#573#0" expanded="true" />
+-            <element signature="e#604#605#0" expanded="true" />
+-            <element signature="e#855#856#0" expanded="true" />
+-            <element signature="e#889#890#0" expanded="true" />
+-            <element signature="e#748#749#0" expanded="true" />
+-            <element signature="e#794#795#0" expanded="true" />
+-            <element signature="e#843#844#0" expanded="true" />
+-            <element signature="e#878#879#0" expanded="true" />
+-            <element signature="e#944#945#0" expanded="true" />
+-            <element signature="e#992#993#0" expanded="true" />
+-          </folding>
++        <state relative-caret-position="34">
++          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+         </state>
+       </provider>
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
++    <entry file="file://$PROJECT_DIR$/src/com/company/bws/enums/CakeType.java">
+       <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="136">
+-          <caret line="13" column="42" lean-forward="true" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="42" />
++        <state relative-caret-position="170">
++          <caret line="10" column="61" selection-start-line="10" selection-start-column="61" selection-end-line="10" selection-end-column="61" />
+         </state>
+       </provider>
+     </entry>
+Index: src/com/company/bws/objects/Stock.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.company.bws.objects;\n\nimport com.company.bws.helpers.CakeLoveWrapper;\nimport com.company.bws.helpers.CandyLoveWrapper;\n\nimport java.util.Arrays;\nimport java.util.Objects;\n\npublic class Stock {\n\n    private BagSweets[] bags;\n    private GiftWrapper cakeWrapper;\n    private GiftWrapper candyWrapper;\n\n    public Stock() {\n        this.bags = new BagSweets[10];\n        this.candyWrapper = new CandyLoveWrapper();\n        this.cakeWrapper = new CakeLoveWrapper();\n    }\n\n    public void initialixeStock() {\n        for (int i = 0; i < 5; i++) {\n            this.bags[i] = cakeWrapper.wrap();\n            this.bags[i + 5] = candyWrapper.wrap();\n        }\n    }\n\n    public BagSweets[] getBags() {\n        return bags;\n    }\n\n    public void setBags(BagSweets[] bags) {\n        this.bags = bags;\n    }\n\n    public GiftWrapper getCakeWrapper() {\n        return cakeWrapper;\n    }\n\n    public void setCakeWrapper(CakeLoveWrapper cakeWrapper) {\n        this.cakeWrapper = cakeWrapper;\n    }\n\n    public GiftWrapper getCandyWrapper() {\n        return candyWrapper;\n    }\n\n    public void setCandyWrapper(CandyLoveWrapper candyWrapper) {\n        this.candyWrapper = candyWrapper;\n    }\n\n    @Override\n    public boolean equals(Object o) {\n        if (this == o) return true;\n        if (o == null || getClass() != o.getClass()) return false;\n        Stock stock = (Stock) o;\n        return Arrays.equals(bags, stock.bags) &&\n                Objects.equals(cakeWrapper, stock.cakeWrapper) &&\n                Objects.equals(candyWrapper, stock.candyWrapper);\n    }\n\n    @Override\n    public int hashCode() {\n        int result = Objects.hash(cakeWrapper, candyWrapper);\n        result = 31 * result + Arrays.hashCode(bags);\n        return result;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/bws/objects/Stock.java	(revision 67a2dbbefd7b1d6d50eaa2ae35578a2d4099906a)
++++ src/com/company/bws/objects/Stock.java	(date 1530438623635)
+@@ -3,33 +3,35 @@
+ import com.company.bws.helpers.CakeLoveWrapper;
+ import com.company.bws.helpers.CandyLoveWrapper;
+ 
++import java.util.ArrayList;
+ import java.util.Arrays;
++import java.util.List;
+ import java.util.Objects;
+ 
+ public class Stock {
+ 
+-    private BagSweets[] bags;
++    private List<BagSweets> bags;
+     private GiftWrapper cakeWrapper;
+     private GiftWrapper candyWrapper;
+ 
+     public Stock() {
+-        this.bags = new BagSweets[10];
++        this.bags =  new ArrayList<BagSweets>();
+         this.candyWrapper = new CandyLoveWrapper();
+         this.cakeWrapper = new CakeLoveWrapper();
+     }
+ 
+     public void initialixeStock() {
+         for (int i = 0; i < 5; i++) {
+-            this.bags[i] = cakeWrapper.wrap();
+-            this.bags[i + 5] = candyWrapper.wrap();
++            bags.add(cakeWrapper.wrap());
++            bags.add(candyWrapper.wrap());
+         }
+     }
+ 
+-    public BagSweets[] getBags() {
++    public List<BagSweets> getBags() {
+         return bags;
+     }
+ 
+-    public void setBags(BagSweets[] bags) {
++    public void setBags(List<BagSweets> bags) {
+         this.bags = bags;
+     }
+ 
+@@ -54,15 +56,13 @@
+         if (this == o) return true;
+         if (o == null || getClass() != o.getClass()) return false;
+         Stock stock = (Stock) o;
+-        return Arrays.equals(bags, stock.bags) &&
++        return Objects.equals(bags, stock.bags) &&
+                 Objects.equals(cakeWrapper, stock.cakeWrapper) &&
+                 Objects.equals(candyWrapper, stock.candyWrapper);
+     }
+ 
+     @Override
+     public int hashCode() {
+-        int result = Objects.hash(cakeWrapper, candyWrapper);
+-        result = 31 * result + Arrays.hashCode(bags);
+-        return result;
++        return Objects.hash(bags, cakeWrapper, candyWrapper);
+     }
+ }
+Index: src/com/company/bws/helpers/CakeLoveWrapper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.company.bws.helpers;\n\nimport com.company.bws.objects.BagSweets;\nimport com.company.bws.objects.GiftWrapper;\nimport com.company.bws.objects.Sweet;\n\npublic class CakeLoveWrapper implements GiftWrapper {\n\n    public CakeLoveWrapper() {\n    }\n\n    @Override\n    public  BagSweets wrap() {\n        Sweet[] sweets = new Sweet[5];\n        for (int i = 0; i < 3; i++) {\n            sweets[i] = SweetInitializator.cakeInitializator();\n        }\n        sweets[3] = SweetInitializator.cookieInitializator();\n        sweets[4] = SweetInitializator.candyInitializator();\n        BagSweets newBag = new BagSweets();\n        newBag.setBag(sweets);\n        newBag.setWeight();\n        return newBag;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/bws/helpers/CakeLoveWrapper.java	(revision 67a2dbbefd7b1d6d50eaa2ae35578a2d4099906a)
++++ src/com/company/bws/helpers/CakeLoveWrapper.java	(date 1530438623610)
+@@ -4,6 +4,9 @@
+ import com.company.bws.objects.GiftWrapper;
+ import com.company.bws.objects.Sweet;
+ 
++import java.util.ArrayList;
++import java.util.List;
++
+ public class CakeLoveWrapper implements GiftWrapper {
+ 
+     public CakeLoveWrapper() {
+@@ -11,12 +14,12 @@
+ 
+     @Override
+     public  BagSweets wrap() {
+-        Sweet[] sweets = new Sweet[5];
++        List<Sweet> sweets = new ArrayList<Sweet>();
+         for (int i = 0; i < 3; i++) {
+-            sweets[i] = SweetInitializator.cakeInitializator();
++            sweets.add(SweetInitializator.cakeInitializator());
+         }
+-        sweets[3] = SweetInitializator.cookieInitializator();
+-        sweets[4] = SweetInitializator.candyInitializator();
++        sweets.add(SweetInitializator.cookieInitializator());
++        sweets.add(SweetInitializator.candyInitializator());
+         BagSweets newBag = new BagSweets();
+         newBag.setBag(sweets);
+         newBag.setWeight();
+Index: src/com/company/bws/helpers/CandyLoveWrapper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.company.bws.helpers;\n\nimport com.company.bws.objects.*;\n\npublic class CandyLoveWrapper implements GiftWrapper {\n\n    public CandyLoveWrapper() {\n    }\n\n    @Override\n    public BagSweets wrap() {\n        int totalNum = 2 + (int) (Math.random() * 4);\n        Sweet[] sweets = new Sweet[totalNum + 2];\n        for (int i = 0; i < totalNum; i++) {\n            sweets[i] = SweetInitializator.candyInitializator();\n        }\n        sweets[totalNum] = SweetInitializator.cookieInitializator();\n        sweets[totalNum + 1] = SweetInitializator.cakeInitializator();\n        BagSweets newBag = new BagSweets();\n        newBag.setBag(sweets);\n        newBag.setWeight();\n        return newBag;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/bws/helpers/CandyLoveWrapper.java	(revision 67a2dbbefd7b1d6d50eaa2ae35578a2d4099906a)
++++ src/com/company/bws/helpers/CandyLoveWrapper.java	(date 1530438623614)
+@@ -2,6 +2,9 @@
+ 
+ import com.company.bws.objects.*;
+ 
++import java.util.ArrayList;
++import java.util.List;
++
+ public class CandyLoveWrapper implements GiftWrapper {
+ 
+     public CandyLoveWrapper() {
+@@ -10,12 +13,12 @@
+     @Override
+     public BagSweets wrap() {
+         int totalNum = 2 + (int) (Math.random() * 4);
+-        Sweet[] sweets = new Sweet[totalNum + 2];
++        List<Sweet> sweets = new ArrayList<Sweet>();
+         for (int i = 0; i < totalNum; i++) {
+-            sweets[i] = SweetInitializator.candyInitializator();
++            sweets.add(SweetInitializator.candyInitializator());
+         }
+-        sweets[totalNum] = SweetInitializator.cookieInitializator();
+-        sweets[totalNum + 1] = SweetInitializator.cakeInitializator();
++        sweets.add(SweetInitializator.cookieInitializator());
++        sweets.add(SweetInitializator.cakeInitializator());
+         BagSweets newBag = new BagSweets();
+         newBag.setBag(sweets);
+         newBag.setWeight();
+Index: src/com/company/bws/helpers/ArrayPrint.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.company.bws.helpers;\n\nimport com.company.bws.objects.BagSweets;\nimport com.company.bws.objects.Stock;\nimport com.company.bws.objects.Sweet;\n\npublic class ArrayPrint {\n    public static void printBag(Sweet[] arr) {\n        for (Sweet j : arr) {\n            System.out.println(j);\n        }\n    }\n\n    public static void stockContent(Stock stock) {\n        for (int i = 0; i < stock.getBags().length; i++) {\n            System.out.println(\"Content of gift\" + i + \" :\");\n            ArrayPrint.printBag(stock.getBags()[i].getBag());\n        }\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/bws/helpers/ArrayPrint.java	(revision 67a2dbbefd7b1d6d50eaa2ae35578a2d4099906a)
++++ src/com/company/bws/helpers/ArrayPrint.java	(date 1530438566893)
+@@ -4,17 +4,19 @@
+ import com.company.bws.objects.Stock;
+ import com.company.bws.objects.Sweet;
+ 
++import java.util.List;
++
+ public class ArrayPrint {
+-    public static void printBag(Sweet[] arr) {
++    public static void printBag(List<Sweet> arr) {
+         for (Sweet j : arr) {
+             System.out.println(j);
+         }
+     }
+ 
+     public static void stockContent(Stock stock) {
+-        for (int i = 0; i < stock.getBags().length; i++) {
++        for (int i = 0; i < stock.getBags().size(); i++) {
+             System.out.println("Content of gift" + i + " :");
+-            ArrayPrint.printBag(stock.getBags()[i].getBag());
++            ArrayPrint.printBag(stock.getBags().get(i).getBag());
+         }
+     }
+ }
+Index: src/com/company/bws/objects/Candy.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.company.bws.objects;\n\nimport com.company.bws.enums.CandyType;\nimport com.company.bws.enums.FillingType;\n\nimport java.util.Objects;\n\npublic class Candy extends Sweet {\n\n\n    private CandyType type;\n    private FillingType filling;\n\n    public CandyType getType() {\n        return type;\n    }\n\n    public void setType(CandyType type) {\n        this.type = type;\n    }\n\n    public FillingType getFilling() {\n        return filling;\n    }\n\n    public void setFilling(FillingType filling) {\n        this.filling = filling;\n    }\n\n    public Candy() {\n\n    }\n\n\n    public Candy(int weight, int caloric, double sugarPersent, CandyType type, FillingType filling) {\n        super(weight, caloric, sugarPersent);\n        this.type = type;\n        this.filling = filling;\n    }\n\n    @Override\n    public boolean equals(Object o) {\n        if (this == o) return true;\n        if (o == null || getClass() != o.getClass()) return false;\n        Candy candy = (Candy) o;\n        return type == candy.type &&\n                filling == candy.filling;\n    }\n\n    @Override\n    public int hashCode() {\n\n        return Objects.hash(type, filling);\n    }\n\n    @Override\n    public String toString() {\n        return \"Candy{\" +\n                \"type=\" + type +\n                \", filling=\" + filling +\n                \", weight=\" + this.getWeight() +\n                '}';\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/com/company/bws/objects/Candy.java	(revision 67a2dbbefd7b1d6d50eaa2ae35578a2d4099906a)
++++ src/com/company/bws/objects/Candy.java	(date 1530438623628)
+@@ -6,8 +6,6 @@
+ import java.util.Objects;
+ 
+ public class Candy extends Sweet {
+-
+-
+     private CandyType type;
+     private FillingType filling;
+ 
+@@ -31,7 +29,6 @@
+ 
+     }
+ 
+-
+     public Candy(int weight, int caloric, double sugarPersent, CandyType type, FillingType filling) {
+         super(weight, caloric, sugarPersent);
+         this.type = type;

@@ -3,34 +3,36 @@ package com.company.bws.objects;
 import com.company.bws.helpers.CakeLoveWrapper;
 import com.company.bws.helpers.CandyLoveWrapper;
 
+import java.util.ArrayList;
 import java.io.Serializable;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
-public class Stock implements Serializable{
+public class Stock implements Serializable {
 
-    private BagSweets[] bags;
+    private List<BagSweets> bags;
     private GiftWrapper cakeWrapper;
     private GiftWrapper candyWrapper;
 
     public Stock() {
-        this.bags = new BagSweets[10];
+        this.bags = new ArrayList<BagSweets>();
         this.candyWrapper = new CandyLoveWrapper();
         this.cakeWrapper = new CakeLoveWrapper();
     }
 
     public void initialixeStock() {
         for (int i = 0; i < 5; i++) {
-            this.bags[i] = cakeWrapper.wrap();
-            this.bags[i + 5] = candyWrapper.wrap();
+            bags.add(cakeWrapper.wrap());
+            bags.add(candyWrapper.wrap());
         }
     }
 
-    public BagSweets[] getBags() {
+    public List<BagSweets> getBags() {
         return bags;
     }
 
-    public void setBags(BagSweets[] bags) {
+    public void setBags(List<BagSweets> bags) {
         this.bags = bags;
     }
 
@@ -55,15 +57,13 @@ public class Stock implements Serializable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Stock stock = (Stock) o;
-        return Arrays.equals(bags, stock.bags) &&
+        return Objects.equals(bags, stock.bags) &&
                 Objects.equals(cakeWrapper, stock.cakeWrapper) &&
                 Objects.equals(candyWrapper, stock.candyWrapper);
     }
 
     @Override
     public int hashCode() {
-        int result = Objects.hash(cakeWrapper, candyWrapper);
-        result = 31 * result + Arrays.hashCode(bags);
-        return result;
+        return Objects.hash(bags, cakeWrapper, candyWrapper);
     }
 }

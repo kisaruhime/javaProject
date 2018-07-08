@@ -7,7 +7,6 @@ import com.company.bws.exceptions.SweetLogicException;
 import java.util.Objects;
 
 public class Candy extends Sweet {
-
     private CandyType type;
     private FillingType filling;
 
