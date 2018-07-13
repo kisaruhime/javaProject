@@ -8,5 +8,47 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/commons-net-3.6/commons-net-3.6.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/commons-net-3.6/commons-net-examples-3.6.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Downloads/commons-net-3.6/commons-net-3.6-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.7/commons-lang3-3.7-tests.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.7/commons-lang3-3.7.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.7/commons-lang3-3.7-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.7/commons-lang3-3.7-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/commons-lang3-3.7/commons-lang3-3.7-test-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/commons-collections4-4.2/commons-collections4-4.2.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/commons-collections4-4.2/commons-collections4-4.2-tests.jar!/" />
+        </CLASSES>
+        <JAVADOC>
+          <root url="jar://$USER_HOME$/Downloads/commons-collections4-4.2/commons-collections4-4.2-javadoc.jar!/" />
+        </JAVADOC>
+        <SOURCES>
+          <root url="jar://$USER_HOME$/Downloads/commons-collections4-4.2/commons-collections4-4.2-sources.jar!/" />
+          <root url="jar://$USER_HOME$/Downloads/commons-collections4-4.2/commons-collections4-4.2-test-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

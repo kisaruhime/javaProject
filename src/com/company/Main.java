@@ -31,5 +31,8 @@ public class Main {
         }
         ArrayPrint.stockContent(newstock_02);
 
+        ArrayPrint.stockContent(newStock);
+        BubbleSort.sort(newStock.getBags().get(0).getBag());
+        ArrayPrint.stockContent(newStock);
     }
 }

@@ -2,7 +2,7 @@ package com.company.bws.objects;
 
 import java.io.Serializable;
 
-public abstract class Sweet implements Serializable {
+public abstract class Sweet implements Serializable{
     private int weight;
     private int caloric;
     private double sugarPersent;
@@ -15,6 +15,10 @@ public abstract class Sweet implements Serializable {
         this.caloric = caloric;
         this.sugarPersent = sugarPersent;
     }
+
+//    public  int compareTo(Sweet other){
+//        return this.weight - other.getWeight();
+//    }
 
     public double sugarWeight() {
         return this.weight * this.sugarPersent;
@@ -43,6 +47,8 @@ public abstract class Sweet implements Serializable {
     public void setSugarPersent(double sugarPersent) {
         this.sugarPersent = sugarPersent;
     }
+
+
 
 
     @Override
