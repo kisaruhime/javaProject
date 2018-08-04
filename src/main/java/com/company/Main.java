@@ -4,6 +4,7 @@ import com.company.bws.helpers.ArrayPrint;
 import com.company.bws.helpers.FileSweetsWriter;
 import com.company.bws.helpers.SerializationTool;
 import com.company.bws.objects.Stock;
+import com.company.bws.sorts.BubbleSort;
 
 import java.io.InvalidObjectException;
 
@@ -25,5 +26,8 @@ public class Main {
         }
         ArrayPrint.stockContent(newstock_02);
 
+        ArrayPrint.stockContent(newStock);
+        BubbleSort.sort(newStock.getBags().get(0).getBag());
+        ArrayPrint.stockContent(newStock);
     }
 }
