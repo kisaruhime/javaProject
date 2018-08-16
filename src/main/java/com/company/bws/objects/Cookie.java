@@ -38,21 +38,6 @@ public class Cookie extends Sweet {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cookie cookie1 = (Cookie) o;
-        return cookie == cookie1.cookie &&
-                filling == cookie1.filling;
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(cookie, filling);
-    }
-
-    @Override
     public String toString() {
         return "Cookie{" +
                 "cookie=" + cookie +
@@ -61,5 +46,21 @@ public class Cookie extends Sweet {
                 ", caloric = " + this.getCaloric() +
                 ", sugarPersent = " + this.getSugarPersent() +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Cookie cookie1 = (Cookie) o;
+        return cookie == cookie1.cookie &&
+                filling == cookie1.filling;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), cookie, filling);
     }
 }

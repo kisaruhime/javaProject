@@ -3,6 +3,7 @@ package com.company.bws.objects;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class BagSweets implements Serializable {
 
@@ -53,5 +54,18 @@ public class BagSweets implements Serializable {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BagSweets bagSweets = (BagSweets) o;
+        return weight == bagSweets.weight &&
+                Objects.equals(bag, bagSweets.bag);
+    }
 
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(bag, weight);
+    }
 }

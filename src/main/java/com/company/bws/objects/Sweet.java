@@ -1,6 +1,7 @@
 package com.company.bws.objects;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public abstract class Sweet implements Serializable{
     private int weight;
@@ -58,5 +59,21 @@ public abstract class Sweet implements Serializable{
                 ", caloric=" + caloric +
                 ", sugarPersent=" + sugarPersent +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Sweet sweet = (Sweet) o;
+        return weight == sweet.weight &&
+                caloric == sweet.caloric &&
+                Double.compare(sweet.sugarPersent, sugarPersent) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(weight, caloric, sugarPersent);
     }
 }

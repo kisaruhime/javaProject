@@ -26,20 +26,6 @@ public class Cake extends Sweet {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Cake cake1 = (Cake) o;
-        return cake == cake1.cake;
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(cake);
-    }
-
-    @Override
     public String toString() {
         return "Cake{" +
                 "weight = " + this.getWeight() +
@@ -47,5 +33,20 @@ public class Cake extends Sweet {
                 ", sugarPersent = " + this.getSugarPersent() +
                 ", cake filling = " + this.getCake() +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Cake cake1 = (Cake) o;
+        return cake == cake1.cake;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), cake);
     }
 }

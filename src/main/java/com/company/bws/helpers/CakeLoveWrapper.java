@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CakeLoveWrapper implements GiftWrapper, Serializable {
+
     public CakeLoveWrapper() {
     }
 
-    @Override
     public BagSweets wrap() {
         List<Sweet> sweets = new ArrayList<Sweet>();
         try {
@@ -30,4 +30,6 @@ public class CakeLoveWrapper implements GiftWrapper, Serializable {
         newBag.setWeight();
         return newBag;
     }
+
+
 }

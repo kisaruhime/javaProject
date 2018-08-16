@@ -14,7 +14,6 @@ public class CandyLoveWrapper implements GiftWrapper, Serializable {
     public CandyLoveWrapper() {
     }
 
-    @Override
     public BagSweets wrap() {
         int totalNum = 2 + (int) (Math.random() * 4);
         List<Sweet> sweets = new ArrayList<Sweet>();
