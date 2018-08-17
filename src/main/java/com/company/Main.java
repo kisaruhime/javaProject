@@ -1,12 +1,18 @@
 package com.company;
 
+import com.company.bws.enums.FillingType;
+import com.company.bws.exceptions.SweetLogicException;
 import com.company.bws.helpers.ArrayPrint;
 import com.company.bws.helpers.FileSweetsWriter;
 import com.company.bws.helpers.SerializationTool;
 import com.company.bws.helpers.SerializeJSON;
 import com.company.bws.helpers.XMLSerialize;
+import com.company.bws.objects.Candy;
 import com.company.bws.objects.Stock;
+import com.company.bws.objects.Sweet;
+import com.company.bws.sorts.BinarySearch;
 import com.company.bws.sorts.BubbleSort;
+import com.company.bws.sorts.QuickSort;
 
 import java.io.FileNotFoundException;
 import java.io.InvalidObjectException;
@@ -43,7 +49,13 @@ public class Main {
 
 
         System.out.println(newstock_02.equals(new_stock3));
-//        BubbleSort.sort(newStock.getBags().get(0).getBag());
-//        ArrayPrint.stockContent(newStock);
+        System.out.println("Before quicksort");
+        QuickSort.quickSort(new_stock3);
+        System.out.println("After quicksort");
+        ArrayPrint.stockContent(new_stock3);
+
+        Sweet sweet = new_stock3.getBags().get(5).getBag().get(0);
+        BinarySearch.search(new_stock3,sweet);
+
     }
 }
