@@ -15,7 +15,7 @@ public class Stock implements Serializable {
     private GiftWrapper candyWrapper;
 
     public Stock() {
-        this.bags = new ArrayList<BagSweets>();
+        this.bags = new ArrayList<>();
         this.candyWrapper = new CandyLoveWrapper();
         this.cakeWrapper = new CakeLoveWrapper();
     }

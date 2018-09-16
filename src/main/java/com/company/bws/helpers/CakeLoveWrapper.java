@@ -15,7 +15,7 @@ public class CakeLoveWrapper implements GiftWrapper, Serializable {
     }
 
     public BagSweets wrap() {
-        List<Sweet> sweets = new ArrayList<Sweet>();
+        List<Sweet> sweets = new ArrayList<>();
         try {
             for (int i = 0; i < 3; i++) {
                 sweets.add(SweetInitializator.cakeInitializator());

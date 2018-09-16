@@ -7,27 +7,15 @@ import java.util.Objects;
 
 public class BagSweets implements Serializable {
 
-    private List<Sweet> bag = new ArrayList<Sweet>();
+    private List<Sweet> bag = new ArrayList<>();
 
     private int weight;
 
+    public BagSweets() { }
 
     public BagSweets(List<Sweet> bag) {
-        this.bag = new ArrayList<Sweet>(bag);
+        this.bag = new ArrayList<>(bag);
     }
-
-    public BagSweets() {
-
-    }
-
-    public List<Sweet> getBag() {
-        return bag;
-    }
-
-    public void setBag(List<Sweet> bag) {
-        this.bag = bag;
-    }
-
 
     public void setWeight() {
         weight = 0;
@@ -45,6 +33,15 @@ public class BagSweets implements Serializable {
         }
         return weight;
     }
+
+    public List<Sweet> getBag() {
+        return bag;
+    }
+
+    public void setBag(List<Sweet> bag) {
+        this.bag = bag;
+    }
+
 
     @Override
     public String toString() {
